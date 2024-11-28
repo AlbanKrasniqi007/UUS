@@ -9,6 +9,9 @@ app.use('/static', express.static('static'))
 app.get('/', (req, res) => {
     res.render('home')
 });
+app.get('/erasums', (req, res) => {
+    res.render('erasmus')
+});
 
 
 app.listen(process.env.PORT, () => {
