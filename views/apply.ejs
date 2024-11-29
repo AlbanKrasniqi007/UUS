@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8" />
+    <title>APPLY</title>
+    <meta name="viewport" content="width=device-width,
+        initial-scale=1.0"/>
+    <link rel="stylesheet" href="/static/css/apply.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    </head>
+    <body>
+            <div class="alert alert-success" id="success-alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">X</span>
+                </button>
+            </div>
+            <div class="alert alert-danger" id="danger-alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">X</span>
+                </button>
+            </div>      
+        <div class="wrapper">
+            <div class="container">
+                <div  class="apply_container">
+                    <div class="logo">
+                        <a href="/">
+                            <img src="/static/image/logo2.0white.png" alt="">
+                        </a>
+                    </div>
+                    <h1>Apply for Bachelor & Master</h1>
+                    <form  action="/apply" method="post">
+                        <input type="text" required name="name" placeholder="Emri | First name">
+                        <input type="text" required name="lastname" placeholder="Mbiemri | Last name">
+                        <input type="text" required name="phone_number" id="" placeholder="Numri i telefonit | Phone Number">
+                        <input type="email" required name="email" placeholder="Email adresa | Email">
+                        <input type="text" required name="address" placeholder="Vendbanimi | Place you live">
+                        <input type="text" required name="high_school" placeholder="Drejtimi i shkolles se mesme | High school department  ">
+                        <select required name="study_level" id="">
+                            <option value="" class="disabled" disabled selected>Niveli i studimeve | Level of studies</option>
+                            <option value="bachelor">Bachelor</option>
+                            <option value="master">Master</option>
+                        </select>
+                        <select required name="choose_dep" id="">
+                            <option value="" class="" disabled selected>Zgjedh drejtimin | Select your study program</option>
+                            <option value="computer_science">Computer Science</option>
+                            <option value="cyber">Cyber Security</option>
+                        </select>
+                        <button type="submit">Apply</button>
+                    </form>
+                </div>
+                <h2>For further information, contact us:</h2>
+                <a href="mailto:aplikimi@uus.edu.com">aplikimi@uus.edu.com</a>
+                <br>
+                <h2>View the study programs</h2>
+                <a href="/studyprograms">HERE</a>
+            </div>
+        </div>
+        <script>
+            setTimeout(function() {
+                $('#success-alert').fadeOut('slow');
+            }, 10000);
+            setTimeout(function() {
+                $('#danger-alert').fadeOut('slow');
+            }, 10000);
+            $('.close').click(function(){
+                $(this).parent().hide();
+            });
+        </script>
+        <script>
+            AOS.init();
+        </script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+</html>
