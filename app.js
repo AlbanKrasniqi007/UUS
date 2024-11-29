@@ -18,6 +18,9 @@ app.get('/applyerasmus', (req, res) => {
 app.get('/login', (req, res) => {
     res.render('login')
 });
+app.get('/apply', (req, res) => {
+    res.render('apply')
+});
 
 app.listen(process.env.PORT, () => {
     console.log('Server is running');
