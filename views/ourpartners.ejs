@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our partners</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+}
+.wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.wrapper-assist{
+    width: 1400px;
+    height: auto;
+    padding: 50px 0;
+}
+.hamburger_undermenu{
+    cursor: pointer;
+    color: #fff;
+    display: none;
+}
+.hamburger_undermenu > .bar{
+    background-color: #fff;
+}
+.hamburger_undermenu.active_ham .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger_undermenu.active_ham .bar:nth-child(1) {
+    -webkit-transform: translateY(8px) rotate(45deg);
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger_undermenu.active_ham .bar:nth-child(3) {
+    -webkit-transform: translateY(-12px) rotate(-45deg);
+    transform: translateY(-12px) rotate(-45deg);
+}
+.links-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.list-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.links {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.links ul {
+    width: 100%;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+}
+.unordered > li > a{
+    color: #000;
+    font-size: 30px;
+    text-decoration: none;
+    transition: .1s;
+}
+.unordered > li > a.active{
+    color: #004392 !important;
+}
+.unordered > li > a:hover{
+    color: #004392;
+}
+#container-hidden{
+    display: none;
+}
+.backgroud-container{
+    background: no-repeat url('/static/image/erasmus3.png');
+    background-size: cover;
+    width: 100%;
+    height: 50rem;
+    position: relative;
+    display: flex;
+    margin-top: 50px;
+    background-position: center;
+}
+.backgroud-container > .part > h1{
+    color: #fff;
+    font-size: 50px;
+    font-weight: 500;
+}
+.backgroud-container > .part > p{
+    font-size: 25px;
+    font-weight: 500;
+    color: #fff;
+    width: 100%;
+}
+.part{
+    width: 50%;
+    position: relative;
+    display: flex;
+    justify-content: end;
+    align-items: start;
+    flex-direction: column;
+    padding: 50px 0;
+    padding-left: 50px;
+}
+.paragraph-background{
+    width: 100%;
+    height: auto;
+    padding: 10px 0;
+    background-color: #D2E3FF;
+    margin: 50px 0;
+}
+.paragraph-background > p{
+    color: #000;
+    text-align: center;
+    font-size: 25px;
+}
+.container-information{
+    width: 100%;
+}
+.container-information > h1{
+    font-size: 35px;
+    color: #000;
+}
+.container-information > p{
+    margin: 50px 0;
+    font-size: 25px;
+}
+#partner-universities > h1{
+    font-size: 35px;
+    color: #004392;
+}
+.hidden {
+    display: none !important;
+}
+.element{
+    width: 100%;
+    display: flex;
+    margin: 50px 0;
+}
+.first-half{
+    width:30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.second-half{
+    width: 70%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    font-size: 20px;
+}
+#seeMore{
+    background-color: #D2E3FF;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.button-container{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}
+.title-erasmus{
+    text-align: center;
+    font-size: 35px;
+    color: #004392;
+    margin: 50px 0;
+}
+.exploring-more{
+    width: 100%;
+    height: auto;
+    padding: 20px 20px;
+    background-color: #D2E3FF;
+}
+.exploring-more > h1{
+    color: #000;
+    font-size: 30px;
+    text-align: center;
+    margin: 50px 0;
+}
+.exploring-more > p{
+    font-size: 25px;
+    color: #000;
+}
+@media screen and (max-width:1400px) {
+    .wrapper{
+        padding: 0px 20px;
+    }
+    .unordered > li > a{
+        font-size: 25px;
+    }
+}
+@media screen and (max-width:1100px) {
+    .unordered li > a{
+        font-size: 20px;
+    }
+}
+@media screen and (max-width:860px){
+    .hamburger_undermenu{
+        display: block;
+    }
+    .links{
+        width: 256px;
+        background-color: #474747;
+        padding: 20px;
+        border-radius: 10px;
+        transition: width .2s ease-in;
+        display: flex;
+        flex-direction: column;
+    }
+    .unordered > li > a{
+        display: none;
+    }
+    .unordered > li > a.active{
+        display: block;
+        color: #fff !important;
+        text-decoration: none;
+    }
+    #container-hidden{
+        background-color: #474747;
+        z-index: 1000000;
+        width: 100%;
+        height: 100%;
+    }
+    #menu{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    #menu li{
+        color: #000;
+    }
+    #menu li a{
+        text-decoration: none;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 500;
+    }
+    #menu li a.active{
+        display: none !important ;
+    }
+    .links.active_links{
+        width: 100%;
+        height: 300px;
+        display: flex;
+    }
+    .part-two{
+        display: none;
+    }
+    .part-one{
+        width: 100%;
+    }
+    .first-half{
+        width: 30%;
+    }
+    .second-half{
+        width: 70%;
+    }
+    .first-half > img{
+        width: 150px;
+    }
+}
+@media screen and (max-width:1150px) {
+    .both-halfs{
+        width: 50%;
+        font-size: 15px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="wrapper-assist">
+            <div class="links-container">
+                <div class="links" id="links">
+                    <div class="list-container">
+                        <ul class="unordered">
+                            <li>
+                                <a href="/ourpartners">WHY TO STUDY ABROAD</a>
+                            </li>
+                            <li>
+                                <a href="#erasmus">ERASMUS</a>
+                            </li>
+                            <li>
+                                <a href="#partner-universities">PARTNER UNIVERSITIES</a>
+                            </li>
+                            <li>
+                                <a href="/contactus">CONTACT US</a>
+                            </li>
+                        </ul>
+                        <div id="hamburger" class="hamburger_undermenu" onclick="toggleMenu()">
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                        </div>
+                    </div>
+                    
+                    
+                    <div id="container-hidden">
+                        <ul id="menu">
+                            <li>
+                                <a href="/ourpartners">WHY TO STUDY ABROAD</a>
+                            </li>
+                            <li>
+                                <a href="#erasmus">ERASMUS</a>
+                            </li>
+                            <li>
+                                <a href="#partner-universities">PARTNER UNIVERSITIES</a>
+                            </li>
+                            <li>
+                                <a href="/contactus">CONTACT US</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="backgroud-container">
+                <div class="part-one part">
+                    <h1>ERASMUS</h1>
+                    <br>
+                    <p>
+                        "Erasmus: where classrooms have no walls, curiosity knows no bounds, and learning is a global adventure."
+                    </p>
+                </div>
+                <div class="part-two part"></div>
+            </div>
+            <div class="paragraph-background" id="erasmus">
+                <p>
+                    "Erasmus, named after the renowned Dutch philosopher Desiderius Erasmus, is a flagship European Union program that has been transforming the lives of students since its inception in 1987. Designed to promote international exchange and cooperation in higher education, Erasmus offers students the opportunity to study or train abroad in one of the program's participating countries.
+                </p>
+            </div>
+            <div class="container-information">
+                <h1>Top 5 reasons why to study abroad</h1>
+                <p>
+                    Studying abroad offers numerous benefits that can enrich your academic, personal, and professional life. Here are some compelling reasons why studying abroad can be an invaluable experience: 
+                    <br><br>
+                    <strong>Cultural Immersion:</strong> Studying abroad allows you to immerse yourself in a new culture, gaining firsthand experience of different customs, traditions, and perspectives.
+                    <br><br>
+                    <strong>Academic Enrichment:</strong> Many study abroad programs offer unique academic opportunities, including specialized coursework, research opportunities, and access to experts in your field.
+                    <br><br>
+                    <strong>Personal Growth:</strong> Living abroad challenges you to step outside your comfort zone, fostering personal growth, resilience, and adaptability.
+                    <br><br>
+                    <strong>Global Networking:</strong> Studying abroad provides opportunities to build a global network of friends, classmates, and professionals from diverse backgrounds, enhancing your personal and professional network.
+                    <br><br>
+                    <strong>Career Advancement:</strong> International experience is highly valued by employers and can enhance your resume, demonstrating skills such as cultural competency, adaptability, and global perspective.
+                </p>
+            </div>
+            <div id="partner-universities">
+                <h1>PARTNER UNIVERSITIES</h1>
+                <div class="element">
+                    <div class="first-half both-halfs">
+                        <img src="/static/universitypartners/standfort.png" alt="">
+                    </div>
+                    <div class="second-half both-halfs">
+                        <h1>Stanford University</h1>
+                        <ul>
+                            <li>Location: Stanford, California, United States</li>
+                            <li>Subjecs: Technology, Engineering, Business, 
+                                Medicine, Humanities</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="element">
+                    <div class="first-half both-halfs">
+                        <img src="/static/universitypartners/melbourne.png" alt="">
+                    </div>
+                    <div class="second-half both-halfs">
+                        <h1>University of Melbourne</h1>
+                        <ul>
+                            <li>Location: Melbourne, Victoria, Australia</li>
+                            <li>Subjecs: Sciences, Medicine, Education
+                                Arts, Business</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="element">
+                    <div class="first-half both-halfs">
+                        <img src="/static/universitypartners/zurich.png" alt="">
+                    </div>
+                    <div class="second-half both-halfs">
+                        <h1>ETH Zurich - Swiss Federal Institute of Technology</h1>
+                        <ul>
+                            <li>Location: Zurich, Switzerland</li>
+                            <li>Subjecs: Engineering, Sciences, Mathematics, 
+                                Computer Science, Architecture</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="element">
+                    <div class="first-half both-halfs">
+                        <img src="/static/universitypartners/melbourne2.png" alt="">
+                    </div>
+                    <div class="second-half both-halfs">
+                        <h1>University of Melbourne:</h1>
+                        <ul>
+                            <li>Location: Melbourne, Victoria, Australia</li>
+                            <li>Subjecs: Sciences, Medicine, Education, Arts, Business.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="element hidden">
+                    <div class="first-half both-halfs">
+                        <img src="/static/universitypartners/ocfort.png" alt="">
+                    </div>
+                    <div class="second-half both-halfs">
+                        <h1>University of Oxford</h1>
+                        <ul>
+                            <li>Location: Oxford, England, United Kingdom</li>
+                            <li>Subjecs: Humanities, Sciences, Social Sciences, Medicine</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="element hidden">
+                    <div class="first-half both-halfs">
+                        <img src="/static/universitypartners/ecole.png" alt="">
+                    </div>
+                    <div class="second-half both-halfs">
+                        <h1>École Polytechnique</h1>
+                        <ul>
+                            <li>Location: Palaiseau, France</li>
+                            <li>Subjecs: Engineering, Sciences, Mathematics, Economics</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="element hidden">
+                    <div class="first-half both-halfs">
+                        <img src="/static/universitypartners/cambridge.png" alt="">
+                    </div>
+                    <div class="second-half both-halfs">
+                        <h1>University of Cambridge</h1>
+                        <ul>
+                            <li>Location: Cambridge, England, United Kingdom</li>
+                            <li>Subjecs: Sciences, Humanities, Engineering, Law, Medicine</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="element hidden">
+                    <div class="first-half both-halfs">
+                        <img src="/static/universitypartners/sorobonne.png" alt="">
+                    </div>
+                    <div class="second-half both-halfs">
+                        <h1>Sorbonne University</h1>
+                        <ul>
+                            <li>Location: Paris, France</li>
+                            <li>Subjecs: Humanities, Sciences, Social Sciences, Medicine, Law</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="element hidden">
+                    <div class="first-half both-halfs">
+                        <img src="/static/universitypartners/university of sanpao.png" alt="">
+                    </div>
+                    <div class="second-half both-halfs">
+                        <h1>University of São Paulo</h1>
+                        <ul>
+                            <li>Location: São Paulo, Brazil</li>
+                            <li>Subjecs: Sciences, Engineering, Medicine, Social Sciences, Humanities</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="element hidden">
+                    <div class="first-half both-halfs">
+                        <img src="/static/universitypartners/singaport.png" alt="">
+                    </div>
+                    <div class="second-half both-halfs">
+                        <h1>National University of Singapore (NUS)</h1>
+                        <ul>
+                            <li>Location: Singapore</li>
+                            <li>Subjecs: Business, Engineering, Sciences, Medicine</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="element hidden">
+                    <div class="first-half both-halfs">
+                        <img src="/static/universitypartners/amsterdam.png" alt="">
+                    </div>
+                    <div class="second-half both-halfs">
+                        <h1>University of Amsterdam</h1>
+                        <ul>
+                            <li>Location: Amsterdam, Netherlands</li>
+                            <li>Subjecs: Humanities, Social Sciences, Sciences, Law, Economics</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="element hidden">
+                    <div class="first-half both-halfs">
+                        <img src="/static/universitypartners/sorbonne.png" alt="">
+                    </div>
+                    <div class="second-half both-halfs">
+                        <h1>Sorbonne University</h1>
+                        <ul>
+                            <li>Location: Paris, France</li>
+                            <li>Subjecs: Humanities, Sciences, Social Sciences, Medicine, Law</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <button id="seeMore">See More</button>
+            </div>
+            <h1 class="title-erasmus">
+                "Exploring Erasmus: Your Guide to Destinations, Application Process, and More"
+            </h1>
+            <div class="exploring-more">
+                <h1>
+                    Erasmus students have the opportunity to study abroad in a wide range of destinations across Europe and beyond. These destinations include:
+                </h1>
+                <p>
+                    <strong>European Union Countries:</strong> Erasmus primarily focuses on study exchanges within European Union (EU) member states. This includes countries such as France, Germany, Spain, Italy, the United Kingdom, and many others.
+                    <br><br>
+                    <strong>Non-EU Countries:</strong> In addition to EU member states, Erasmus also offers study opportunities in non-EU countries that participate in the program. These countries may include Iceland, Norway, Liechtenstein, Turkey, North Macedonia, and Serbia, among others.
+                    <br><br>
+                    <strong>Partner Universities:</strong> Erasmus students can choose from a network of partner universities within their host country. These partner universities have established agreements with the student's home institution, allowing for seamless credit transfer and academic recognition.
+                    <br><br>
+                    <strong>Travel Opportunities:</strong> Studying abroad with Erasmus opens doors to travel opportunities within the host country and neighboring regions. Students can explore historic landmarks, natural wonders, and cultural attractions, creating unforgettable memories during their time abroad.
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+        var path = window.location.pathname;
+        var links = document.querySelectorAll('.links a');
+    
+        for (var i = 0; i < links.length; i++) {
+            var href = links[i].getAttribute('href');
+            if(path.includes(href)) {
+                links[i].classList.add('active');
+            }
+        }
+        function toggleMenu() {
+        var menu = document.getElementById('container-hidden');
+        var hamburger = document.getElementById('hamburger');
+        var links = document.getElementById('links');
+        
+        if (menu.style.display === 'none') {
+            menu.style.display = 'block';
+            hamburger.classList.add('active_ham');
+            links.classList.add('active_links');
+        } else {
+            menu.style.display = 'none';
+            hamburger.classList.remove('active_ham');
+            links.classList.remove('active_links');
+        }
+    }
+    document.getElementById('seeMore').addEventListener('click', function() {
+            var hiddenElements = document.querySelectorAll('.hidden');
+            for (var i = 0; i < hiddenElements.length; i++) {
+                hiddenElements[i].classList.remove('hidden');
+            }
+            this.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
