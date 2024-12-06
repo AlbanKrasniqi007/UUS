@@ -20,7 +20,7 @@ body{
     height: 100vh;
     z-index: -1;
     object-fit: cover;
-    position: relative;
+    position: absolute;
 }
 
 .wrapper{

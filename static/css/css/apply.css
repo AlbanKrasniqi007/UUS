@@ -4,7 +4,39 @@
     box-sizing: border-box;
     font-family: "Lato",sans-serif;
   }
-  
+  .close-btn {
+    position: absolute;
+    top: 10px; 
+    right: 10px; 
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px; 
+    text-align: center;
+    color: #000000;
+    background-color: transparent;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 24px;
+    transition: transform 0.2s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #003366;
+    transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+    .close-btn {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 20px;
+        top: 5px;
+        right: 5px;
+    }
+}
+
   .desktop-1-child{
     position: absolute;
     top: 146px;
