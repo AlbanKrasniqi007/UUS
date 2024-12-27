@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erasmus Feedback Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/feedback.css">
+</head>
+<body>
+    <%- include('partials/Navbar'); %>
+
+    <div class="container mt-4">
+        <% if (successAlert && successAlert.length > 0) { %>
+            <div class="alert alert-success alert-dismissible fade show" role="alert" id="success-alert">
+                <%= successAlert %>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <% } %>
+        
+        <% if (dangerAlert && dangerAlert.length > 0) { %>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert" id="danger-alert">
+                <%= dangerAlert %>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <% } %>
+    </div>
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+
+                <div class="feedback-section p-4 p-md-5">
+
+                    <div class="text-center mb-5">
+                        <h1 class="fw-bold mb-3 ">Erasmus Programme Feedback</h1>
+                        <p class="lead text-muted">
+                            Your feedback is essential for improving our Erasmus services and ensuring excellence in international education.
+                        </p>
+                        <hr>
+                    </div>
+
+                    <form action="/feedback" method="POST" class="needs-validation" novalidate>
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-6">
+                                <label for="name" class="form-label">Name (Optional)</label>
+                                <input type="text" class="form-control" id="name" name="name">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email" class="form-label">Email (Optional)</label>
+                                <input type="email" class="form-control" id="email" name="lastname">
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label">Overall User Experience Rating</label>
+                            <div class="btn-group w-100" role="group">
+                                <input type="radio" class="btn-check" name="rating" id="rating1" value="1">
+                                <label class="btn btn-outline-primary" for="rating1">Unsatisfied</label>
+                                
+                                <input type="radio" class="btn-check" name="rating" id="rating2" value="2">
+                                <label class="btn btn-outline-primary" for="rating2">Neutral</label>
+                                
+                                <input type="radio" class="btn-check" name="rating" id="rating3" value="3">
+                                <label class="btn btn-outline-primary" for="rating3">Satisfied</label>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label">Information Categories of Interest</label>
+                            <div class="list-group">
+                                <label class="list-group-item">
+                                    <input class="form-check-input me-1" type="checkbox" name="more_info" value="Information about Erasmus Exchange Programs">
+                                    Erasmus Exchange Programs
+                                </label>
+                                <label class="list-group-item">
+                                    <input class="form-check-input me-1" type="checkbox" name="more_info" value="Scholarship Opportunities">
+                                    Scholarship Opportunities
+                                </label>
+                                <label class="list-group-item">
+                                    <input class="form-check-input me-1" type="checkbox" name="more_info" value="Health and Safety Information">
+                                    Health and Safety Information
+                                </label>
+                                <label class="list-group-item">
+                                    <input class="form-check-input me-1" type="checkbox" name="more_info" value="Accommodation and Living Arrangements">
+                                    Accommodation and Living Arrangements
+                                </label>
+                                <label class="list-group-item">
+                                    <input class="form-check-input me-1" type="checkbox" name="more_info" value="Others">
+                                    Other Information
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label">Technical Difficulties Encountered</label>
+                            <div class="btn-group" role="group">
+                                <input type="radio" class="btn-check" name="difficulties" id="diff1" value="yes">
+                                <label class="btn btn-outline-secondary" for="diff1">Yes</label>
+                                <input type="radio" class="btn-check" name="difficulties" id="diff2" value="no">
+                                <label class="btn btn-outline-secondary" for="diff2">No</label>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="rating_satisfied" class="form-label">Device Compatibility Rating (1-10)</label>
+                            <input type="number" class="form-control custom-number-input" 
+                                   id="rating_satisfied" name="rating_satisfied" 
+                                   min="1" max="10" required>
+                            <div class="form-text">Please rate from 1 (poor) to 10 (excellent)</div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label">Would you recommend our program?</label>
+                            <div class="btn-group" role="group">
+                                <input type="radio" class="btn-check" name="recommend" id="rec1" value="yes">
+                                <label class="btn btn-outline-success" for="rec1">Yes</label>
+                                <input type="radio" class="btn-check" name="recommend" id="rec2" value="no">
+                                <label class="btn btn-outline-danger" for="rec2">No</label>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="feedback" class="form-label">Additional Comments</label>
+                            <textarea class="form-control" id="feedback" name="text_box" 
+                                      rows="4" placeholder="Please provide any additional feedback or suggestions..."></textarea>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary btn-lg px-5">
+                                Submit Feedback
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        (() => {
+            'use strict'
+            const forms = document.querySelectorAll('.needs-validation')
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+
+        setTimeout(() => {
+            $('.alert').fadeOut('slow');
+        }, 10000);
+    </script>
+</body>
+</html>

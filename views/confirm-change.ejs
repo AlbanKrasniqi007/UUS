@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/static/css/css/confirm-change.css">
+  <link rel="stylesheet" href="/static/css/confirm-change.css">
 </head>
 <body>
   <% if (successAlert && successAlert.length > 0) { %>
@@ -27,7 +27,7 @@
     <img class="Main_logo" src="/static/image/logo2.0black.png" alt="">
   </a>
   <div class="wrapper">
-    <form action="/confirm-change" method="POST">
+    <form action="/auth/confirm-change" method="POST">
       <input type="hidden" name="email" value="<%= email %>">
       <h1>Change Password</h1>
       <div class="input-box">
