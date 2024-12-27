@@ -1,0 +1,720 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Lato", sans-serif;
+}
+
+
+body{
+    width: 100%;
+    height: 100vh;
+    background-color: #EDEDED;
+    position: relative;
+}
+video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100vh;
+    z-index: -1;
+    object-fit: cover;
+}
+/* texti */
+.main-text{
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+}
+.main-text-container{
+    color: #ffffff;
+    position: absolute;
+}
+.welcome-text{
+    font-size: 128px;
+}
+.welcome-quote{
+    font-size: 36.5px;
+}
+/* texti */
+
+/* Buttonat */
+.Left-buttons{
+    height: 40vh;
+}
+.button_container{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+}
+.button_container > a{
+    padding: 10px 20px;
+    background-color: #004492;
+    color: #fff;
+    border-top-right-radius: 10px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    cursor: pointer;
+    font-size: 20px;
+    transition: 0.3s ease;
+    text-decoration: none;
+}
+
+.button_container > a:nth-child(1){
+    width: 120px;
+    transform: translateX(-100px);
+    padding-right: 125px;
+}
+.button_container > a:nth-child(1):hover{
+    transform: translateX(0px);
+    padding-right: 20px;
+}
+.button_container > a:nth-child(2){
+    width: 170px;
+    transform: translateX(-140px);
+    padding-right: 165px;
+    text-wrap: nowrap;
+}
+.button_container > a:nth-child(2):hover{
+    transform: translateX(0px);
+    padding-right: 20px;
+}
+.button_container > a:nth-child(3){
+    border: none;
+    transform: translateX(-230px);
+    padding-right: 50px;
+}
+.button_container > a:nth-child(3):hover{
+    transform: translateX(0px);
+    padding-right: 20px;
+}
+/* Buttonat */
+
+.wrapper{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* about USS section */
+.wrapper-assist{
+    width: 1400px;
+}
+.About_UUS{
+    width: 100%;
+    display: flex;
+}
+.About_section_select{
+    width: 50%;
+    height: 800px;
+}
+.About_USS_text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.About_USS_text > h1{
+    color: #000;
+    font-weight: 600;
+    font-size: 36px;
+    margin-bottom: 50px;
+}
+.About_USS_text > p{
+    color: #767676;
+    font-size: 32px;
+    text-align: justify;
+}
+.About_USS_image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.About_USS_image > img{
+    position: absolute; 
+    top: -200px;
+}
+/* about USS section */
+
+
+/* study program */
+.Study_programs{
+    width: 100%;
+    height: 60rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+.Study_programs >h1{
+    color: #000;
+    font-weight: 800;
+    font-size: 44px;
+    text-align: center;
+}
+
+.mySlides {
+    display: none;
+}
+.mySlides > img{
+    height: 740px;
+    object-fit: cover;
+}
+.slideshow-container {
+    width: 100%;
+    height: 740px;
+    object-fit: cover;
+    position: relative;
+    margin: auto;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 45%;
+    color: white;
+    transition: 0.6s ease;
+    user-select: none;
+    -webkit-user-select: none;
+}
+.prev{
+    transform: rotate(180deg);
+}
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+.title{
+    color: #fff;
+    font-size: 32px;
+    font-weight: 500;
+    text-decoration: underline;
+    position: absolute;
+    top:40px;
+    left: 100px;
+}
+.text {
+    color: #f2f2f2;
+    font-size: 27px;
+    padding: 8px 100px;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 170px;
+    text-align: justify;
+}
+
+.dot_container{
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 10px;
+}
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+.active1, .dot:hover {
+    background-color: #004492;
+}
+
+
+.fade-slider {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+
+.button_learn{
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.button_learn > a{
+    background-color: transparent;
+    border: 5px solid white;
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+.button_learn > a > span{
+    margin-top: 7px;
+}
+/* study program */
+
+/* facts */
+
+.Facts_UUS{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.Facts_UUS > h1{
+    color: #000;
+    font-weight: 800;
+    font-size: 44px;
+    text-align: center;
+    margin-top: 40px;
+}
+.icon_container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 70px;
+}
+.icon_div{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 300px;
+}
+.icon_div > h1{
+    color: #767676;
+    font-size: 24px;
+    text-align: justify;
+}
+
+/* facts */
+
+/* galery */
+.Photo_Galery{
+    width: 100%;
+    height: 85.6rem;
+    display: flex;
+    margin-top: 100px;
+}
+.HalfG{
+    width: 50%;
+    position: relative;
+}
+.half_part_galery > h1{
+    font-size: 40px;
+    color: #000;
+}
+.uss-law-div{
+    background: no-repeat url('/static/image/law_img.png');
+    width: 440px;
+    height: 350px;
+    position: relative;
+}
+.uss-law-div > h2,
+.erasmus-div > h2{
+    position: absolute;
+    bottom: 50px;
+    left: 30px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: 500;
+    text-shadow: 0 0 10px black;
+}
+.uss-law-div > a,
+.erasmus-div > a{
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    border-bottom: 2px solid white;
+    color: #fff;
+    font-size: 18px;
+    text-shadow: 0 0 10px black;
+    text-decoration: none;
+}
+.erasmus-div{
+    background: no-repeat url('/static/image/IMG_3204.png');
+    width: 440px;
+    height: 350px;
+    position: relative;
+}
+.container-div-galery{
+    width: 100%;
+    display: flex;
+    align-items: end;
+    flex-direction: column;
+    margin: 10px 0;
+    position: relative;
+    right: -100px;
+    z-index: 1;
+}
+.working-div{
+    width: 100%;
+    height: 580px;
+    position: relative;
+}
+.working-div > img{
+    width: 100%;
+    height: 580px;
+    object-fit: cover;
+    filter: brightness(0.5);
+}
+.working-div > h2{
+    position: absolute;
+    top: 30px;
+    right: 100px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: 500;
+    text-shadow: 0 0 10px black;
+}
+.working-div > p{
+    position: absolute;
+    right: 70px;
+    top: 110px;
+    text-align: justify;
+    color: #fff;
+    font-size: 30px;
+    font-weight: 500;
+    text-shadow: 0 0 10px black;
+    width: 50%;
+}
+.working-div > a{
+    position: absolute;
+    top: 500px;
+    right: 70px;
+    background-color: transparent;
+    border: 2px solid white;
+    padding: 10px 20px;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+}
+.athletics_section{
+    width: 100%;
+    height: 70%;
+    position: relative;
+}
+.athletics_section>img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.athletics_section > h2{
+    color: #fff;
+    position: absolute;
+    top: 250px;
+    left: 100px;
+    text-shadow: 0 0 10px black;
+    font-size: 55px;
+}
+.athletics_section > p{
+    color: #fff;
+    position: absolute;
+    top: 350px;
+    left: 100px;
+    text-shadow: 0 0 10px black;
+    font-size: 40px;
+    width: 500px;
+    text-align: justify;
+}
+.athletics_section > a{
+    position: absolute;
+    bottom: 30px;
+    right: 70px;
+    background-color: transparent;
+    border: 2px solid white;
+    padding: 10px 20px;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+}
+.uus_college{
+    width: 100%;
+    height: 30%;
+    position: relative;
+}
+.uus_college > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.uus_college > h2{
+    color: #fff;
+    position: absolute;
+    bottom:150px;
+    left: 150px;
+    text-shadow: 0 0 10px black;
+    font-size: 35px;
+    text-transform: uppercase;
+}
+.uus_college > a{
+    position: absolute;
+    bottom: 120px;
+    left: 150px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    border-bottom: 2px solid white;
+    color: #fff;
+    font-size: 18px;
+    text-shadow: 0 0 10px black;
+    text-decoration: none;
+}
+/* galery */
+
+
+
+/* apply */
+.apply_footer{
+    position: relative;
+    width: 100%;
+}
+.begin{
+    text-align: center;
+    font-size: 30px;
+    padding: 30px 0;
+}
+.apply_section{
+    width: 100%;
+    height: 40rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.apply_section > img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    object-fit: cover;
+}
+.apply_container{
+    width: 1000px;
+    display: flex;
+    justify-content: center;
+}
+.apply_forma{
+    background-color: #ffffff28;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 30px 50px;
+}
+.apply_forma > h1{
+    font-size: 50px;
+    color: #fff;
+}
+.apply_forma > p{
+    font-size: 28px;
+    color: #fff;
+    text-align: justify;
+    padding: 100px 0;
+}
+.apply_forma > a{
+    color: #fff;
+    background-color: #004492;
+    text-decoration: none;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 50px;
+    font-size: 28px;
+}
+.apply_forma > a > img{
+    width: 30px;
+}
+/* apply */
+
+
+@media screen and (max-width:768px) {
+    .welcome-text{
+        font-size: 70px !important;
+    }
+    .welcome-quote{
+        font-size: 20.1px !important;
+    }
+    .apply-container{
+        padding: 0 20px;
+    }
+    .button_container > a{
+        transform: translateX(0px) !important;
+        padding-right: 20px !important;
+    }
+    .About_UUS{
+        width: 100%;
+        padding: 0 30px;
+    }
+    .About_USS_image{
+        display: none;
+    }
+    .Study_programs >h1,
+    .Facts_UUS > h1{
+        font-size: 36px;
+    }
+    .icon_container{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .icon_div{
+        margin: 20px;
+    }
+    .button_learn > a{
+        font-size: 20px;
+        padding: 7px 15px;
+    }
+    .apply_section{
+        height: auto;
+        padding-bottom: 50px;
+    }
+}
+@media screen and (max-width:468px){
+    .About_section_select{
+        height: 140vh;
+    }
+    .uss-law-div,
+    .erasmus-div{
+        width: 100%;
+    }
+    .Left-buttons{
+        width: 100%;
+    }
+}
+@media screen and (max-height:700px){
+    .Study_programs{
+        margin-top: 30px;
+        height: 120vh;
+    }
+}
+@media screen and (max-width:872px){
+    .About_USS_image{
+        display: none;
+    }
+    .About_USS_text{
+        width: 100%;
+    }
+    .About_USS_text > h1{
+        text-align: center;
+    }
+    .text{
+        font-size: 18px !important;
+    }
+    .athletics_section > p{
+        font-size: 20px;
+        position: absolute;
+        left: 50px;
+        width: 300px;
+    }
+    .working-div > p{
+        font-size: 20px;
+    }
+    .apply_forma > p{
+        font-size: 20px;
+    }
+    .icon_div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .icon_div > img{
+        width: 250px;
+    }
+}
+@media screen and (max-width:568px){
+    .welcome-text{
+        font-size: 50px !important;
+    }
+    .welcome-quote{
+        font-size: 14.4px !important;
+    }
+    .prev > img , .next > img{
+        width: 50px;
+    }
+    .text{
+        padding: 8px 70px;
+        font-size: 14px !important;
+        position: absolute;
+        bottom: 200px !important;
+    }
+}
+@media screen and (max-width:1310px){
+    .welcome-text{
+        font-size: 100px;
+    }
+    .welcome-quote{
+        font-size: 28.7px;
+    }
+    .About_UUS{
+        width: 100%;
+        padding: 0 30px;
+    }
+    .text{
+        position: absolute;
+        bottom: 170px;
+        font-size: 22px;
+    }
+    .apply_forma > a{
+        font-size: 20px;
+    }
+}
+@media screen and (max-width:1225px){
+    .Photo_Galery{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        padding: 0 10px;
+    }
+    .HalfG{
+        width: 100%;
+        height: 90rem;
+    }
+    .container-div-galery{
+        width: 100%;
+        display: flex;
+        justify-content:center ;
+        align-items: center;
+        position: relative;
+        right: 0px !important;
+    }
+}
+
+@media screen and (max-width:1400px){
+    .wrapper-assist{
+        width: 100%;
+        padding: 50px 20px;
+    }
+    .apply_container{
+        padding: 0 20px;
+    }
+}
+
+
