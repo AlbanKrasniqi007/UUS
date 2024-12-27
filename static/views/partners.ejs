@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partners</title>
+    <link rel="stylesheet" href="/static/css/partners.css">
+</head>
+<body>
+    <%- include('partials/Navbar-light'); %>
+
+    <div class="wrapper">
+        <div class="wrapper-assist">
+            <div class="links-container">
+                <div class="links" id="links">
+                    <div class="list-container">
+                        <ul class="unordered">
+                            <li>
+                                <a href="/erasmus">ERASMUS</a>
+                            </li>
+                            <li>
+                                <a href="/partners">TRAVEL INFORMATION</a>
+                            </li>
+                            <li>
+                                <a href="/apply-erasmus">APPLY FOR ERASMUS</a>
+                            </li>
+                            <li>
+                                <a href="/feedback">FEEDBACK & SUGGESTIONS</a>
+                            </li>
+                        </ul>
+                        <div id="hamburger" class="hamburger_undermenu" onclick="toggleMenu()">
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                        </div>
+                    </div>
+                    
+                    
+                    <div id="container-hidden">
+                        <ul id="menu">
+                            <li>
+                                <a href="/erasmus">ERASMUS</a>
+                            </li>
+                            <li>
+                                <a href="/partners">TRAVEL INFORMATION</a>
+                            </li>
+                            <li>
+                                <a href="/apply-erasmus">APPLY FOR ERASMUS</a>
+                            </li>
+                            <li>
+                                <a href="/feedback">FEEDBACK & SUGGESTIONS</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1QR6_dy1CiCo_Qe3dEglIO4tbis428WA&ehbc=2E312F&noprof=1" width="100% " height="580"></iframe>
+            <form class="Form_Categories_Button" action="/">
+                <select name="categorySelect" id="categorySelect">
+                    <option value="">All categories</option>
+                    <option value="Kosova">Kosova</option>
+                    <option value="Albania">Albania</option>
+                </select>
+                <select name="levelSelect" id="levelSelect">
+                    <option value="">All levels</option>
+                    <option value="Bachelor">Bachelor</option>
+                    <option value="Master">Master</option>
+                </select>
+                <select name="semesterSelect" id="semesterSelect">
+                    <option value="">All semesters</option>
+                    <option value="Winter">Winter</option>
+                    <option value="Summer">Summer</option>
+                </select>
+                <select name="depSelect" id="depSelect">
+                    <option value="">All departments</option>
+                    <option value="1">Computer Science</option>
+                    <option value="2">Cyber Security</option>
+                </select>
+                <input type="hidden" name="countries" id="selected-category" value="">
+                <input type="hidden" name="level" id="selected-level" value="">
+                <input type="hidden" name="semester" id="selected-semester" value="">
+                <input type="hidden" name="dep_id" id="selected-dep" value=""> 
+            </form>
+            
+            <div class="partners-container">
+                <% data.forEach(row=>{ %>
+                    <div class="card1" 
+                            data-category="<%= row.countries %>" 
+                            data-level="<%= row.level %>" 
+                            data-semester="<%= row.semester %>"
+                            data-dep="<%= row.dep_id %>">
+                        <img src="data:image/jpeg;base64,<%= row.partners_photos %>" alt="Product Image" width="200" height="200">
+                        <h1>
+                            <%= row.name %>
+                        </h1>
+                        <h2>
+                            <%= row.open_scolars %> open scholarship
+                        </h2>
+                        <div class="card-apply">
+                            <a href="/apply-erasmus">Apply</a>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+            
+            
+        </div>
+    </div>
+    <%- include('partials/footer'); %>
+    <script>
+        var path = window.location.pathname;
+        var links = document.querySelectorAll('.links a');
+    
+        for (var i = 0; i < links.length; i++) {
+            var href = links[i].getAttribute('href');
+            if(path.includes(href)) {
+                links[i].classList.add('active');
+            }
+        }
+        function toggleMenu() {
+        var menu = document.getElementById('container-hidden');
+        var hamburger = document.getElementById('hamburger');
+        var links = document.getElementById('links');
+        
+        if (menu.style.display === 'none') {
+            menu.style.display = 'block';
+            hamburger.classList.add('active_ham');
+            links.classList.add('active_links');
+        } else {
+            menu.style.display = 'none';
+            hamburger.classList.remove('active_ham');
+            links.classList.remove('active_links');
+        }
+    }
+    
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        const categorySelect = document.getElementById('categorySelect');
+        const levelSelect = document.getElementById('levelSelect');
+        const semesterSelect = document.getElementById('semesterSelect');
+        const depSelect = document.getElementById('depSelect'); 
+        const selectedCategoryInput = document.getElementById('selected-category');
+        const selectedLevelInput = document.getElementById('selected-level');
+        const selectedSemesterInput = document.getElementById('selected-semester'); 
+        const selectedDepInput = document.getElementById('selected-dep'); 
+
+        categorySelect.addEventListener('change', () => {
+            const selectedCategory = categorySelect.value;
+            selectedCategoryInput.value = selectedCategory;
+            filterProducts(selectedCategory, selectedLevelInput.value, selectedSemesterInput.value, selectedDepInput.value); 
+        });
+
+        levelSelect.addEventListener('change', () => {
+            const selectedLevel = levelSelect.value;
+            selectedLevelInput.value = selectedLevel;
+            filterProducts(selectedCategoryInput.value, selectedLevel, selectedSemesterInput.value, selectedDepInput.value); 
+        });
+
+        semesterSelect.addEventListener('change', () => {
+            const selectedSemester = semesterSelect.value;
+            selectedSemesterInput.value = selectedSemester;
+            filterProducts(selectedCategoryInput.value, selectedLevelInput.value, selectedSemester, selectedDepInput.value); 
+        });
+
+        depSelect.addEventListener('change', () => {
+        const selectedDep = depSelect.value;
+        selectedDepInput.value = selectedDep;
+        filterProducts(selectedCategoryInput.value, selectedLevelInput.value, selectedSemesterInput.value, selectedDep); 
+        });
+
+        function filterProducts(countries, level, semester, dep) {
+            console.log('Filtering with Dep:', dep);
+            const products = document.querySelectorAll('.card1');
+            products.forEach(product => {
+                const productCategory = product.getAttribute('data-category');
+                const productLevel = product.getAttribute('data-level');
+                const productSemester = product.getAttribute('data-semester');
+                const productDep = product.getAttribute('data-dep'); 
+                console.log('Product Dep:', productDep);
+                if ((countries === '' || countries === productCategory) && 
+                    (level === '' || level === productLevel) && 
+                    (semester === '' || semester === productSemester) && 
+                    (dep === '' || dep === productDep)) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+    });
+        </script>
+</body>
+</html>

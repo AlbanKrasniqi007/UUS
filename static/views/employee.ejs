@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee benefits</title>
+    <link rel="stylesheet" href="/static/css/employee.css">
+</head>
+<body>
+    <%- include('partials/Navbar-light'); %>
+    <div class="wrapper">
+        <div class="wrapper-assist">
+            <div class="links-container">
+                <div class="links" id="links">
+                    <div class="list-container">
+                        <ul class="unordered">
+                            <li>
+                                <a href="/workat-uus">WORK AT UUS</a>
+                            </li>
+                            <li>
+                                <a href="/employee">EMPLOYEE BENEFITS</a>
+                            </li>
+                            <li>
+                                <a href="/research">RESEARCH SUPPORT</a>
+                            </li>
+                            <li>
+                                <a href="/employment">EMPLOYMENT OPPORTUNITIES</a>
+                            </li>
+                        </ul>
+                        <div id="hamburger" class="hamburger_undermenu" onclick="toggleMenu()">
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                        </div>
+                    </div>
+                    
+                    
+                    <div id="container-hidden">
+                        <ul id="menu">
+                            <li>
+                                <a href="/workat-uus">WORK AT UUS</a>
+                            </li>
+                            <li>
+                                <a href="/employee">EMPLOYEE BENEFITS</a>
+                            </li>
+                            <li>
+                                <a href="/research">RESEARCH SUPPORT</a>
+                            </li>
+                            <li>
+                                <a href="/employment">EMPLOYMENT OPPORTUNITIES</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="backgroud-container">
+                <div class="part-one part">
+                    <h1>WORK AT UUS</h1>
+                </div>
+            </div>
+            <div class="campus">
+                <h1>
+                    EMPLOYEE BENEFITS
+                </h1>
+                <br>
+                <p>
+                    Employee benefits play a pivotal role in enhancing the overall employee experience within universities. These benefits extend far beyond monetary compensation, encompassing a variety of offerings aimed at supporting faculty and staff members in both their personal and professional lives.
+
+                    Among the most notable benefits are robust healthcare packages, providing comprehensive coverage for medical needs, as well as dental and vision care. Additionally, universities often provide retirement plans, offering employees peace of mind and financial security for the future. 
+                    Furthermore, tuition assistance programs empower employees to pursue further education and professional development, fostering a culture of lifelong learning within the academic community. Flexible work arrangements, generous vacation policies, and access to campus resources further contribute to a positive work-life balance.
+                    
+                    Overall, these benefits not only attract top talent but also contribute to employee satisfaction, engagement, and retention, ultimately enriching the university environment and promoting a culture of excellence.
+                </p>
+            </div>
+        </div>
+    </div>
+    <%- include('partials/footer'); %>
+    <script>
+        var path = window.location.pathname;
+        var links = document.querySelectorAll('.links a');
+    
+        for (var i = 0; i < links.length; i++) {
+            var href = links[i].getAttribute('href');
+            if(path.includes(href)) {
+                links[i].classList.add('active');
+            }
+        }
+        function toggleMenu() {
+        var menu = document.getElementById('container-hidden');
+        var hamburger = document.getElementById('hamburger');
+        var links = document.getElementById('links');
+        
+        if (menu.style.display === 'none') {
+            menu.style.display = 'block';
+            hamburger.classList.add('active_ham');
+            links.classList.add('active_links');
+        } else {
+            menu.style.display = 'none';
+            hamburger.classList.remove('active_ham');
+            links.classList.remove('active_links');
+        }
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protected Admin only!</title>
+    <link rel="stylesheet" href="/static/css/protected.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    
+</head>
+<body>
+    <% if (alert) { %>
+        <div class="alert <%= alert.type %>-alert" id="alert">
+            <%= alert.message %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">X</span>
+            </button>
+        </div>
+    <% } %>
+    <% if (successAlert && successAlert.length > 0) { %>
+        <div class="alert alert-success" id="success-alert">
+            <%= successAlert %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">X</span>
+            </button>
+        </div>
+    <% } %>
+    <% if (dangerAlert && dangerAlert.length > 0) { %>
+        <div class="alert alert-danger" id="danger-alert">
+            <%= dangerAlert %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">X</span>
+            </button>
+        </div>
+    <% } %>
+
+    <% if (userRole === 'admin') { %>
+        <div class="admin-button-container">
+            <a href="/admin/change-requests" class="admin-button">
+                <i class="fas fa-cog"></i> Change Requests
+            </a>
+        </div>
+    <% } %>
+    <div class="wrapper">
+        <div class="left-side">
+            <div class="topSide">
+                <div class="logo">
+                    <a href="/admin/protected">
+                        <img src="/static/image/logo2.0black.png" alt="">
+                    </a>
+                </div>
+                <div class="tabs">
+                    <button id="toggleDivs">
+                        <img src="/static/image/dashboard-3--app-application-dashboard-home-layout-vertical.png" alt="">
+                        Dashboard
+                    </button>
+                    <button id="toggleDiv2">
+                        <img src="/static/image/User-Multiple-Group--Streamline-Core.png" alt="">
+                        User Managment
+                    </button>
+                    <button id="toggleDiv3">
+                        <img src="/static/image/User-Multiple-Group--Streamline-Core.png" alt="">
+                        Login Managment
+                    </button>
+                    <button id="toggleDiv4">
+                        <img src="/static/image/Graph--Streamline-Core.png" alt="">
+                        Statistics
+                    </button>
+                    <button id="toggleDiv5">
+                        <img src="/static/image/la_university.png " alt="">
+                        Partner Universities
+                    </button>
+                    <button id="toggleDiv6">
+                        <img src="/static/image/Calendar-Edit-1--Streamline-Ultimate.png " alt="">
+                        Events
+                    </button>
+                    <button id="toggleDiv7">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" viewBox="0 0 24 24"><g fill="none" fill-rule="evenodd"><path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"/><path fill="currentColor" d="M15 6a3 3 0 0 1-2 2.83V11h3a3 3 0 0 1 3 3v1.17a3.001 3.001 0 1 1-2 0V14a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v1.17a3.001 3.001 0 1 1-2 0V14a3 3 0 0 1 3-3h3V8.83A3.001 3.001 0 1 1 15 6m-3-1a1 1 0 1 0 0 2a1 1 0 0 0 0-2M6 17a1 1 0 1 0 0 2a1 1 0 0 0 0-2m12 0a1 1 0 1 0 0 2a1 1 0 0 0 0-2"/></g></svg>
+                        Departments
+                    </button>
+                    <button id="toggleDiv8">
+                        <img src="/static/image/Graph--Streamline-Core.png" alt="">
+                        Study Level
+                    </button>
+                </div>
+            </div>
+            <div class="bottomSide">
+                <a href="">Need Help?</a>
+                <form action="/auth/logout-admin" id="logout-form" method="POST">
+                    <input type="submit" id="a1" class="nav-link" value="Logout">
+                </form>
+            </div>
+        </div>
+        <div class="right-side">
+
+            <div class="main-container hidden" id="div1">
+                <h1 style="text-align: center; margin: 50px 0;">New applications</h1>
+                <div class="apply_wrapper">
+                    <% data.forEach(row=>{ %>
+                        <div class="apply_card">
+                            <div class="first-part">
+                                <div class="apply_name">
+                                    <span>
+                                        <%= row.name %>
+                                        <%= row.lastname %>
+                                    </span>
+                                </div>
+                                <div class="apply_phone_num">
+                                    <%= row.phone_number %>
+                                </div>
+                                <div class="apply_email">
+                                    <%= row.email %>
+                                </div>
+                                <div class="apply_high_school">
+                                    <%= row.high_school %>
+                                </div>
+                                <div class="apply_study_level">
+                                    <%= row.study_level %>
+                                </div>
+                                <div class="apply_department">
+                                    <%= row.choose_dep %>
+                                </div>
+                            </div>
+                            <div class="second-part">
+                                <select class="status" data-id="<%= row.user_id %>">
+                                    <option value="pending" <%= row.status == 'pending' ? 'selected' : '' %>>pending</option>
+                                    <option value="accepted" <%= row.status == 'accepted' ? 'selected' : '' %>>accepted</option>
+                                    <option value="rejected" <%= row.status == 'rejected' ? 'selected' : '' %>>rejected</option>
+                                </select>
+                            </div>
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+
+            <div class="main-containear hidden" id="div2">
+                <h1 style="text-align: center; margin: 50px 0;">New Erasmus Applications</h1>
+                <div class="new-erasmus-container" >
+                    <% card.forEach(apply => { %>
+                        <div class="card-apply-erasmus">
+                            <div class="emri-delete">
+                                <span>
+                                    <%= apply.fullname %>
+                                </span>
+                                <form action="/admin/delete-erasmus-application/<%= apply.application_id %>" method="POST">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <button type="submit">X</button>
+                                </form>
+                            </div>
+                            <h1>
+                                <%= apply.place %>
+                            </h1>
+                            <h1>
+                                <%= apply.semester %>
+                            </h1>
+                            <h1>
+                                <%= apply.Department.dep_name %>
+                            </h1>
+                            <h1>
+                                <%= apply.User.email %>
+                            </h1>
+                        </div>
+                    <% }); %>
+                </div>
+            </div>
+
+            <div class="main-container hidden" id="div3">
+                <h1 style="text-align: center; margin: 50px 0;">Register User</h1>
+                <div class="register-container">
+                    <div class="register-one">
+                        <div class="edit-container">
+                            <button id="myBtn" href="">Edit <img src="/static/image/editicon.png" alt=""></button>
+                        </div>
+                        <form action="/admin/register" method="POST" enctype="multipart/form-data">
+                            <input required type="text" name="name" placeholder="Name of the user:">
+                            <input required type="text" name="lastname" placeholder="Lastname of the user:">
+                            <input required type="text" name="address" placeholder="Adress of the user:" id="">
+                            <input required type="email" name="email" placeholder="Personal email of user:" id="">
+                            <input required type="text" name="phone_number" placeholder="Phone number of user:" id="">
+                            <select required name="role" id="">
+                                <option value="" class="" disabled selected>Role</option>
+                                <% availableRoles.forEach(role => { %>
+                                    <option value="<%= role %>" <%= data.role === role ? 'selected' : '' %>>
+                                        <%= role.charAt(0).toUpperCase() + role.slice(1) %>
+                                    </option>
+                                <% }); %>
+                            </select>
+                            <select required name="dep_id" id="">
+                                <option value="" class="" disabled selected>Department</option>
+                                <% department.forEach(dep => { %>
+                                    <option value="<%= dep.dep_id %>"><%= dep.dep_name %></option>
+                                <% }); %>
+                            </select>
+                            <input type="file" name="files" multiple  id="file" onchange="loadFile(event)">
+                            
+                            <button type="submit">Create</button>
+                        </form>
+                    </div>
+                    <div id="myModal" class="modal">
+                        <div class="modal-content">
+                            <div class="inside-modal">
+                                <span style="visibility: hidden;" class="close-btn">&times;</span>
+                                <div class="pjesa2">
+                                    <div class="rcmn">
+                                        <form id="search-form">
+                                            <input type="text" id="search-input" placeholder="Search..." autocomplete="off">
+                                            <button class="search-submit" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                        </form>
+                                        <div id="recommendations"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="register-two">
+                        <div id="output">
+                            <img src="/static/image/default.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-container hidden" id="div4">
+                <h1 style="text-align: center; margin: 50px 0;">Add login access to users</h1>
+                <div class="login-container">
+                    <div class="pjesa2">
+                        <div class="rcmn">
+                            <form id="search-form2">
+                                <input type="text" id="search-input2" placeholder="Search..." autocomplete="off">
+                                <button class="search-submit2" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                            </form>
+                            <div id="recommendations2"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="disclaimer">
+                    <h1>Disclaimer</h1>
+                    <p>
+                        This function is user for giving the user(admin,student,professor) access to login into this website. By searching it by name admin will be send to another page for further edits/create.
+                    </p>
+                </div>
+            </div>
+
+            <div class="main-container hidden" id="div5">
+                <h1 style="text-align: center; margin: 50px 0;">Feedback Statistics</h1>
+                <div class="feedback">
+                    <div class="feedback-inside-container">
+                        <% row.forEach(feedback => { %>
+                            <div class="feedback-card">
+                                <h1>Name: <%= feedback.name %>
+                                <br>Email: <%= feedback.lastname %></h1>
+                                <%= feedback.text_box %>
+                            </div>
+                        <% }); %>
+                    </div>
+                </div>
+                <div class="feedback-support">
+
+                    <div class="feedback-one">
+                        <div class="both-part-one">
+                            <h1>Overall experience 1-3</h1>
+                            <span><%= averageRating %></span>
+                        </div>
+                        <div style="border-top: 1px solid #fff;" class="both-part-one">
+                            <h1>Average Rating 1=10</h1>
+                            <span><%= averageSatisfiedRating %></span>
+                        </div>
+                    </div>
+
+                    <div class="feedback-two">
+                        <div class="feedback-two-container">
+                            <% Object.keys(moreInfoCounts).forEach(info => { %>
+                                <h1>
+                                    <span class="text-counts"><%= info %>:</span> <span class="counts"><%= moreInfoCounts[info] %></span><br>
+                                </h1>
+                            <% }); %>
+                        </div>
+                    </div>
+
+                    <div class="feedback-three">
+                        <div class="both-part-two">
+                            <h2>Difficulties</h2>
+                            <% Object.keys(difficulties).forEach(info => { %>
+                                <h1>
+                                    <span class="yes-no-counts"><%= info %>:</span> <span class="counts-yn"><%= difficulties[info] %></span><br>
+                                </h1>
+                            <% }); %>
+                        </div>
+                        <div style="border-top: 1px solid #fff;" class="both-part-two">
+                            <h2>Recomment</h2>
+                            <% Object.keys(recommend).forEach(info => { %>
+                                <h1>
+                                    <span class="yes-no-counts"><%= info %>:</span> <span class="counts-yn"><%= recommend[info] %></span><br>
+                                </h1>
+                            <% }); %>
+                        </div>
+                    </div>
+                </div>
+                <h1 style="text-align: center; margin: 50px 0;">Statistics</h1>
+                <div class="statistics">
+                    <div class="statistics-part-one statistics-both">
+                        <h1>Number of Students: <span class="stats"><%= studentCount %></span></h1>
+                        <h1>Number of Professors: <span class="stats"><%= professorCount %></span></h1>
+                        <h1>Number of departments: <span class="stats"><%=departmentCount%></span> </h1>
+                    </div>
+                    <div class="statistics-part-two statistics-both">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Department</th>
+                                    <th>Student Count</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% departmentStudentCounts.forEach(function(dep) { %>
+                                    <tr>
+                                        <td><%= dep.dep_name %></td>
+                                        <td><%= dep.count %></td>
+                                    </tr>
+                                <% }); %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-container hidden" id="div6">
+                <h1 style="text-align: center; margin: 50px 0;">Partner Universities</h1>
+                <div class="partner-container">
+                    <div class="edit-patners">
+                        <div class="pjesa2">
+                            <div class="rcmn">
+                                <form id="search-form3">
+                                    <input type="text" id="search-input3" placeholder="Search..." autocomplete="off">
+                                    <button class="search-submit" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                </form>
+                                <div id="recommendations3"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="partner-inside">
+                        <div class="partner-one both-partners">
+                            <form action="/admin/create-partner" method="POST" enctype="multipart/form-data">
+                                <div class="form-one">
+                                    <input required type="text" name="name" placeholder="Name:">
+                                    <input required type="text" name="countries" placeholder="countries:">
+                                    <input required type="number" name="open_scolars" placeholder="open_scolars:" id="">
+                                    <input required type="file" name="photos" multiple id="file" onchange="loadFile2(event)">
+                                </div>
+                                <div class="form-two">
+                                    <select  name="level" id="">
+                                        <option value="" class="" disabled selected>Level</option>
+                                        <option value="Bachelor">Bachelor</option>
+                                        <option value="Master">Master</option>
+                                    </select>
+                                    <select  name="semester" id="">
+                                        <option value="" class="" disabled selected>Semester</option>
+                                        <option value="Winter">Winter</option>
+                                        <option value="Summer">Summer</option>
+                                    </select>
+                                    <select  name="dep_id" id="">
+                                        <option value="" class="" disabled selected>Department</option>
+                                        <% department.forEach(dep => { %>
+                                            <option value="<%= dep.dep_id %>"><%= dep.dep_name %></option>
+                                        <% }); %>
+                                    </select>
+                                    
+                                
+                                    <button type="submit">Create</button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <div class="partner-two both-partners">
+                            <div id="output2">
+                                <img src="/static/image/default.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-container hidden" id="div7">
+                <h1 style="text-align: center; margin: 50px 0;">Add Event or Task</h1>
+                <form class="tasks" action="/task/create" method="POST">
+                    <label for="taskName">Task Name:</label>
+                    <input type="text" placeholder="Task/event name" id="taskName" name="taskName" required>
+                    <br>
+                    <label for="scheduledTime">Scheduled Time:</label>
+                    <input type="datetime-local" id="scheduledTime" name="scheduledTime" required>
+                    <br>
+                    <label for="duration">Duration (days):</label>
+                    <input type="number" id="duration" name="duration" value="0" required>
+                    <br>
+                    <button type="submit">Add Task</button>
+                </form>
+                
+                
+                <h2>Tasks List</h2>
+                <div class="active-inactive">
+                    <% tasks.forEach(task => { %>
+                        <div class="inside-active">
+                            <%= task.task_name %> -
+                            <% if (new Date(task.scheduled_time) > new Date()) { %>
+                                <span style="color: green;">Active</span>
+                                <% const timeDiff = new Date(task.scheduled_time) - new Date(); %>
+                                <% const daysLeft = Math.floor(timeDiff / (1000 * 60 * 60 * 24)); %>
+                                <% const hoursLeft = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)); %>
+                                <% const minutesLeft = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60)); %>
+                                <h3>
+                                    <%= daysLeft %>d <%= hoursLeft %>h <%= minutesLeft %>m left
+                                </h3>
+                            <% } else { %>
+                                <span style="color: red;">Inactive</span>
+                                - Deadline passed
+                            <% } %>
+                            <br>
+                            Scheduled Time: <%= task.scheduled_time.toLocaleString() %>
+                            <form action="/task/delete/<%= task.id %>" method="POST">
+                                <button type="submit">Delete</button>
+                            </form>
+                        </div>
+                    <% }); %>
+                </div>
+
+                <%- include('partials/Calendar'); %>
+            </div>
+            <div class="main-container hidden" id="div8">
+                <h1 style="text-align: center; margin: 50px 0;">Departments</h1>
+                <h3 style="text-align: center;">
+                    Departments are used to categorize students and professors. You can create, edit and delete departments here. <br>
+                    Total number of departments: <span class="department-count"><%= departmentCount %></span>
+                </h3>
+                <div class="departments">
+                    <% department.forEach(dep => { %>
+                        <div class="department">
+                            <h2 style="text-align: center;"><%= dep.dep_name %></h2>
+                
+                            <div class="department-buttons">
+                                <form action="/admin/delete-department/<%= dep.dep_id %>" method="POST">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <button type="submit">Delete</button>
+                                </form>
+                    
+                                <button class="edit-btn" data-id="<%= dep.dep_id %>" data-name="<%= dep.dep_name %>">Edit</button>
+                            </div>
+                        </div>
+                    <% }); %>
+                </div>
+                
+                <div id="editModal" class="DepartmentModal">
+                    <div class="Department-modal-content">
+                        <span class="Department-close">&times;</span>
+                        <form id="editForm" action="/admin/update-department/" method="POST">
+                            <label for="dep_name">Department Name:</label>
+                            <input type="text" id="dep_name" name="dep_name" required>
+                            <input type="hidden" id="dep_id" name="dep_id">
+                            <button type="submit">Update</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="department-create">
+                    <form action="/admin/create-department" method="post">
+                        <input type="text" name="dep_name" placeholder="Department Name" required>
+                        <button type="submit">Create</button>
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="main-container hidden" id="div9">
+                <h1 style="text-align: center; margin: 50px 0;">Study Level</h1>
+                <p style="text-align: center;">Total Study Levels: <span style="font-weight: 600;"><%= totalStudyLevels %></span></p>
+                <div class="study-main">
+                    <% StudyLevels.forEach(level => { %>
+                        <div class="study-container">
+                            <%= level.study_level %>
+
+                            <div class="study-section">
+                                <form action="/admin/delete-study-level/<%= level.study_level_id %>" method="POST">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <button type="submit">Delete</button>
+                                </form>
+                                <button class="edit-study" data-id="<%= level.study_level_id %>" data-name="<%= level.study_level %>">Edit</button>
+                            </div>
+                        </div>
+                    <% }); %>
+                </div>
+                
+                <div id="studyModal" class="StudyModal">
+                    <div class="Study-modal-content">
+                        <span class="Study-close">&times;</span>
+                        <form id="StudyForm" action="/admin/update-study-level/" method="POST">
+                            <label for="study_level">Study Level Name:</label>
+                            <input type="text" id="study_level" name="study_level" required>
+                            <input type="hidden" id="study_level_id" name="study_level_id">
+                            <button type="submit">Update</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="study-create">
+                    <form action="/admin/create-study-level" method="post">
+                        <input type="text" name="study_level" placeholder="Study Level Name" required>
+                        <button type="submit">Create</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="/static/js/protected.js" defer></script>
+    <script src="/static/js/loginInformation.js" defer></script>
+    <script src="/static/js/partners.js"></script>
+</body>
+</html>

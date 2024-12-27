@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Login Information</title>
+    <link rel="stylesheet" href="/static/css/logininformation.css">
+</head>
+<body>
+
+    <% if (successAlert && successAlert.length > 0) { %>
+        <div class="alert alert-success" id="success-alert">
+            <%= successAlert %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">X</span>
+            </button>
+        </div>
+    <% } %>
+    <% if (dangerAlert && dangerAlert.length > 0) { %>
+        <div class="alert alert-danger" id="danger-alert">
+            <%= dangerAlert %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">X</span>
+            </button>
+        </div>
+    <% } %>
+    <div class="additional-information">
+        <h1>
+            <span>
+                <%= data.name %>
+                <%= data.lastname %>
+            </span>
+        </h1>
+        <h3>Role: <%= data.role %></h3>
+        <h3>Phone Number: <%= data.phone_number %></h3>
+        <h3>Address: <%= data.address %></h3>
+    </div>
+    <div class="container">
+        <form action="/admin/delete-login-information/<%= data.id %>" method="POST">
+            <button type="submit">X</button>
+        </form>
+        <% if (login && login.email) { %>
+            <p>Email: <%= login.email %></p>
+            <p>Edit User: <%= data.name %> <%= data.lastname %></p>
+            <form action="/admin/update-login-information/<%= data.id %>" method="POST">
+                <input type="text" name="email" value="<%= login.email %>">
+                <div class="form-group">
+                    <label for="reason">Reason for Change:</label>
+                    <textarea name="reason" placeholder="Please provide a reason for this change"></textarea>
+                </div>
+                <input type="text" name="password" hidden>
+                <button type="submit">Submit Change</button>
+            </form>
+        <% } else { %>
+            <p>There is no email for this user</p>
+            <form action="/admin/create-login-information/<%= data.id %>" method="POST">
+                <input required type="text" name="email" placeholder="Email:">
+                <label for="password">Password by default: UUSuni123</label>
+                <input required type="text" name="password" value="UUSuni123">
+                <button type="submit">ADD / Update</button>
+            </form>
+        <% } %>
+        
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        setTimeout(function() {
+            $('#success-alert').fadeOut('slow');
+        }, 10000);
+        setTimeout(function() {
+            $('#danger-alert').fadeOut('slow');
+        }, 10000);
+        $('.close').click(function(){
+            $(this).parent().hide();
+        });
+    </script>
+</body>
+</html>
