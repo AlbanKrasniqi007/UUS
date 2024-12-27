@@ -37,14 +37,16 @@ const hideElement = (element) => {
     element.classList.remove('visible');
 }
 
-const divs = ['div1', 'div2', 'div3', 'div4', 'div5','div6','div7'].map(id => document.getElementById(id));
+const divs = ['div1', 'div2', 'div3', 'div4', 'div5','div6','div7','div8','div9'].map(id => document.getElementById(id));
 const toggles = [
     { button: 'toggleDivs', divs: [0, 1] },
     { button: 'toggleDiv2', divs: [2] },
     { button: 'toggleDiv3', divs: [3] },
     { button: 'toggleDiv4', divs: [4] },
     { button: 'toggleDiv5', divs: [5] },
-    { button: 'toggleDiv6', divs: [6] }
+    { button: 'toggleDiv6', divs: [6] },
+    { button: 'toggleDiv7', divs: [7] },
+    { button: 'toggleDiv8', divs: [8] },
 ].map(toggle => ({ ...toggle, button: document.getElementById(toggle.button) }));
 
 toggles.forEach(({ button, divs: divIndices }) => {
@@ -59,6 +61,65 @@ toggles.forEach(({ button, divs: divIndices }) => {
     });
 });
 
+    const Depmodal = document.getElementById('editModal');
+    const DepcloseModal = document.querySelector('.Department-close');
+    const editForm = document.getElementById('editForm');
+    const depNameInput = document.getElementById('dep_name');
+    const depIdInput = document.getElementById('dep_id');
+
+    document.querySelectorAll('.edit-btn').forEach(button => {
+        button.addEventListener('click', event => {
+            const depId = button.getAttribute('data-id');
+            const depName = button.getAttribute('data-name');
+
+            depNameInput.value = depName;
+            depIdInput.value = depId;
+
+            editForm.action = `/admin/update-department/${depId}`;
+
+            Depmodal.style.display = 'block';
+        });
+    });
+
+    DepcloseModal.addEventListener('click', () => {
+        Depmodal.style.display = 'none';
+    });
+
+    window.addEventListener('click', event => {
+        if (event.target === Depmodal) {
+            Depmodal.style.display = 'none';
+        }
+    });
+
+    const studyModal = document.getElementById('studyModal');
+    const StudyClose = document.querySelector('.Study-close');
+    const StudyForm = document.getElementById('StudyForm');
+    const studyLevelInput = document.getElementById('study_level');
+    const studyLevelId = document.getElementById('study_level_id');
+
+    document.querySelectorAll('.edit-study').forEach(button => {
+        button.addEventListener('click', event => {
+            const studyId = button.getAttribute('data-id');
+            const studyName = button.getAttribute('data-name');
+
+            studyLevelInput.value = studyName;
+            studyLevelId.value = studyId;
+
+            StudyForm.action = `/admin/update-study-level/${studyId}`;
+
+            studyModal.style.display = 'block';
+        });
+    });
+
+    StudyClose.addEventListener('click', () => {
+        studyModal.style.display = 'none';
+    });
+
+    window.addEventListener('click', event => {
+        if (event.target === studyModal) {
+            studyModal.style.display = 'none';
+        }
+    });
 
 
 
@@ -120,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
         try {
-            const response = await fetch("/search", {
+            const response = await fetch("/user/search", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -157,26 +218,26 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function navigateToUser(userId) {
-        window.location.href = `/user/${userId}`;
+        window.location.href = `/admin/user/${userId}`;
     }
 
     searchInput.addEventListener("keydown", function (e) {
         if (e.key === "Enter" && recommendations.firstElementChild) {
             const userId = recommendations.firstElementChild.getAttribute("data-id");
-            window.location.href = `/user/${userId}`;
+            window.location.href = `/admin/user/${userId}`;
         }
     });
     searchForm.addEventListener("submit", function (e) {
         e.preventDefault();
         if (recommendations.firstElementChild) {
             const userId = recommendations.firstElementChild.getAttribute("data-id");
-            window.location.href = `/user/${userId}`;
+            window.location.href = `/admin/user/${userId}`;
         }
     });
     recommendations.addEventListener("click", function (e) {
         if (e.target.tagName === "LI") {
             const userId = e.target.getAttribute("data-id");
-            window.location.href = `/user/${userId}`;
+            window.location.href = `/admin/user/${userId}`;
         }
     });
 });
