@@ -5,13 +5,17 @@ const router = express.Router();
 const { body, validationResult } = require('express-validator');
 const loggingRateLimiter = require('../middleware/loginlimitter');
 const sessionMiddleware = require('../middleware/sesionMiddleware');
+const Department = require('../model/DepartmentModel');
+const StudyLevel = require('../model/StudyLevel');
 
 router.use(flash());
 router.use(loggingRateLimiter);
 router.use(sessionMiddleware);
 
-router.get('/', (req, res) => {
-    res.render('apply', { successAlert: req.flash('success'), dangerAlert: req.flash('danger') });
+router.get('/', async (req, res) => {
+    const department = await Department.findAll();
+    const StudyLevels = await StudyLevel.findAll();
+    res.render('apply', { successAlert: req.flash('success'), dangerAlert: req.flash('danger') , department, StudyLevels });
 });
 
 router.post('/', 
@@ -44,7 +48,6 @@ async (req, res) => {
         application_date,
         status = 'pending'
     } = req.body;
-
     try {
         const application = await ApplyForm.create({
             user_id,
@@ -57,7 +60,7 @@ async (req, res) => {
             study_level,
             choose_dep,
             application_date,
-            status
+            status,
         });
 
         req.flash('success', 'Application is successful!');
