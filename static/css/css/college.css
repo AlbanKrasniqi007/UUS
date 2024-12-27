@@ -132,6 +132,8 @@ body{
 }
 .blur {
     background-color: #ffffff3a;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     display: flex;
     justify-content: center;
     border-radius:10px ;

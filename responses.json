@@ -1,0 +1,30 @@
+{
+  "courses": {
+      "buttons": ["What we offer", "Departments", "Professors", "Campuses"],
+      "messages": ["We do offer a variety of courses including Data Science, Java programming etc.", 
+      "Our University has 2 departments: Computer Science & Cyber Security",
+      "Our academic staff contains one of the most trained staff and professors", 
+      "Our University has 2 campuses in Kosovo"]
+  },
+  "OpenDays":"Our university operates Monday through Friday, welcoming students, faculty, and visitors from 8:00 AM to 6:00 PM.",
+  "ContactUS":{
+    "buttons":["Via message","Via email","Via phone","physically"],
+    "messages":["You can contact us using Instagram or Facebook @uus",
+    "You can contact us via Email: uus_infomation@uus-edu.org",
+    "You can contact us through oue phone numbers: +383 12 345 678 or +383 21 345 678",
+    "You can come to the campus area of the UUS and our staff will direct you to the correct office"]
+  },
+  "Howtoapply":{
+    "buttons":["Via form","Via phone","Via email","From Campus"],
+    "messages":["In first page you shall see the apply button in the top-right corner there you fill the inputs and apply",
+    "You can call one of our agents on our phone mubers +383 12 345 678 or +383 21 345 678",
+    "You can apply via email by sending you CV and diplomas",
+    "You can come in one of the campuses of UUS and apply physically"]
+  },
+  "Abroad":"During a survey we did with the students 64% of them said that summer is better and the other 34% said winter is better.",
+  "10universities":"University of Barcelona, Autonomous University of Barcelona, Pompeu Fabra University, University of Navarra, Autonomous University of Madrid, Complutense University of Madrid, University of Granada, Rovira i Virgili University, University of Valencia",
+  "10art":"University of Cambridge, University of Oxford, UCL (University College London), University of St Andrews, University of Warwick, University of York, University of Birmingham, University of Manchester, University of Bristol, University of Exeter",
+  "accomodation":"Universities typically have a dedicated section of their website for on-campus student accommodation that includes pricing, photos, rental duration and other important details.",
+  "studyAbroad":"Study Abroad Programs range from a couple of weeks, a month, a semester, a summer session or an academic year.",
+  "abroadstudies":"If you are already enrolled in the UUS study program you have the opportunity to apply for a scholarship to any of our partner universities"
+}
