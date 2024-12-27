@@ -1,0 +1,110 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  .header{
+    width: 100%;
+  }
+  .wrapper{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .wrapper-assist{
+    width: 1440px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f1f1f1;
+  }
+  .login-container {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 400px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .Main_logo {
+    max-width: 150px;
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease;
+  }
+
+  .Main_logo:hover {
+    transform: scale(1.05);
+  }
+
+  .input-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+
+  .input-group i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+    z-index: 3;
+    pointer-events: none; 
+  }
+
+  .form-control {
+    padding-left: 2.5rem !important;
+    border-radius: 8px !important;
+    height: auto !important;
+    padding-top: 0.8rem !important;
+    padding-bottom: 0.8rem !important;
+    width: 100% !important;
+    z-index: 2;
+  }
+
+  .form-control:focus {
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    border-color: #86b7fe;
+  }
+
+  .btn-login {
+    background: #0d6efd;
+    color: white;
+    border-radius: 8px;
+    padding: 0.8rem;
+    width: 100%;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .btn-login:hover {
+    background: #0b5ed7;
+    transform: translateY(-2px);
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .modal-content {
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+
+  #messageContainer {
+    color: #dc3545;
+    text-align: center;
+    margin-top: 1rem;
+  }
