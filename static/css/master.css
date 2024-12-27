@@ -1,0 +1,77 @@
+.hero-section {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/static/image/campus.png');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 0;
+}
+.program-card {
+    transition: transform 0.3s;
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+}
+.program-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+.program-card img {
+    height: 200px;
+    object-fit: cover;
+}
+.partner-logo {
+    max-height: 60px;
+    filter: grayscale(100%);
+    transition: filter 0.3s;
+}
+.partner-logo:hover {
+    filter: grayscale(0%);
+}
+.benefits-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+}
+.hover-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+.icon-box {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.partner-logo {
+    max-height: 60px;
+    max-width: 240px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(100%);
+    transition: all 0.3s ease;
+    margin: 15px 0;
+}
+.partner-logo:hover {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+.partners-section {
+    background-color: #f8f9fa;
+    padding: 60px 0;
+}
+
+@media screen and (max-width: 1140px) {
+    .partner-logo{
+        max-width: 200px;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .partner-logo{
+        max-width: 160px;
+    }
+}
